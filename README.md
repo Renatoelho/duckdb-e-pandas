@@ -25,6 +25,7 @@ Para este exemplo, vamos criar um dataframe de clientes usando o pandas. Execute
 ```python
 import pandas as pd
 
+# Importando o arquivo de clientes no Pandas
 df_clientes = pd.read_csv("BaseClientes.csv", sep=",")
 
 print(df_clientes)
@@ -55,8 +56,10 @@ Agora que temos nosso dataframe de clientes, vamos conectar-nos ao duckDB para r
 ```python
 import duckdb
 
+# Criando conexão com DuckDB
 conexao = duckdb.connect(database=":memory:", read_only=False)
 
+# Registrando o DataFrame como uma tabela no DuckDB
 conexao.register("clientes", df_clientes)
 ```
 
