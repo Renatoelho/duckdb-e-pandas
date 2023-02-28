@@ -39,14 +39,19 @@ Este código criará um dataframe com cinco colunas: id, name, age, city.
 
 A saída no console será a seguinte:
 
-```bash
-   id    name  age            city
-0   1    João   25       São Paulo
-1   2   Maria   30  Rio de Janeiro
-2   3   Pedro   18  Belo Horizonte
-3   4     Ana   40    Porto Alegre
-4   5   Luiza   27        Curitiba
-```
+|   |nome|sobrenome|idade|ultimo_salario|empresa_atual|
+|-----|-----|-----|-----|-----|-----|
+|0|Enrico|Rushmare|31.0|NaN|Skinte|
+|1|Ivett|Pettiward|31.0|5249.72|NaN|
+|2|Stillmann|Budnik|NaN|13738.43|Tagchatx|
+|3|Zondra|Lille|18.0|15998.02|Roomm|
+|4|Eldon|Normansell|32.0|NaN|NaN|
+|...|...|...|...|...|...|
+|995|Darrel|Finders|19.0|19447.05|Jaxnation|
+|996|Nelson|Pedel|20.0|3112.77|NaN|
+|997|Emmanuel|Trevithick|NaN|4383.58|Twinder|
+|998|Alfy|Ilyunin|46.0|NaN|Vinder|
+|999|Phaidra|Dolley|20.0|NaN|Bubblemix|
 
 #### Conectando-se ao duckDB
 
