@@ -1,18 +1,18 @@
 # Como utilizar o duckDB e o pandas para executar queries em um Dataframe
 
-Este guia irá ensiná-lo a utilizar o duckDB e pandas para executar consultas em um dataframe.
+Este guia irá ensiná-lo a utilizar o ***duckDB*** e ***pandas*** para executar consultas em um dataframe.
 
 #### Pré-requisitos
 
-Para seguir este guia, você precisará ter o duckDB e o pandas instalados em seu ambiente de desenvolvimento.
+Para seguir este guia, você precisará ter o ***duckDB*** e o ***pandas*** instalados em seu ambiente de desenvolvimento.
 
-Você pode instalar o duckDB executando o seguinte comando no terminal:
+Você pode instalar o ***duckDB*** executando o seguinte comando no terminal:
 
 ```bash
 pip install duckdb
 ```
 
-E para instalar o pandas, basta executar o seguinte comando:
+E para instalar o ***pandas***, basta executar o seguinte comando:
 
 ```bash
 pip install pandas
@@ -20,7 +20,7 @@ pip install pandas
 
 #### Criando o dataframe
 
-Para este exemplo, vamos criar um dataframe de clientes usando o pandas. Execute o seguinte código em seu ambiente de desenvolvimento:
+Para este exemplo, vamos criar um ***dataframe*** de clientes usando o pandas. Execute o seguinte código em seu ambiente de desenvolvimento:
 
 ```python
 import pandas as pd
@@ -31,7 +31,7 @@ df_clientes = pd.read_csv("BaseClientes.csv", sep=",")
 print(df_clientes)
 ```
 
-Este código criará um dataframe com cinco colunas: nome, sobrenome, idade, ultimo_salario e empresa_atual.
+Este código criará um ***dataframe*** com cinco colunas: nome, sobrenome, idade, ultimo_salario e empresa_atual.
 
 A saída no console será a seguinte:
 
@@ -51,7 +51,9 @@ A saída no console será a seguinte:
 
 #### Conectando-se ao duckDB
 
-Agora que temos nosso dataframe de clientes, vamos conectar-nos ao duckDB para realizar algumas consultas. Execute o seguinte código em seu ambiente de desenvolvimento:
+Agora que temos nosso dataframe de clientes, vamos conectar-nos ao ***duckDB*** para realizar algumas consultas. 
+
+Execute o seguinte código em seu ambiente de desenvolvimento:
 
 ```python
 import duckdb
@@ -63,11 +65,13 @@ conexao = duckdb.connect(database=":memory:", read_only=False)
 conexao.register("clientes", df_clientes)
 ```
 
-Este código criará uma conexão com o duckDB e registrará o dataframe de clientes como uma tabela chamada clientes.
+Este código criará uma ***conexão*** com o ***duckDB*** e registrará o dataframe de clientes como uma ***tabela*** chamada ***clientes***.
 
 #### Executando consultas
 
-Agora que estamos conectados ao duckDB, podemos executar consultas em nosso dataframe de clientes. Execute o seguinte código em seu ambiente de desenvolvimento:
+Agora que estamos conectados ao ***duckDB***, podemos executar consultas em nosso ***dataframe*** de clientes.
+
+Execute o seguinte código em seu ambiente de desenvolvimento:
 
 ```python
 # (Query 1) Contando os clientes
@@ -82,7 +86,7 @@ resultado = conexao.execute(query).df()
 
 print(resultado)
 
-# (Query 3) Contando o número de clientes por idade, em grupos de idades onde tem de mais de 30 clientes
+# (Query 3) Contando a quantidade de clientes por idade, apenas para as idades que possuem mais de 30 clientes.
 query = """
 SELECT idade, COUNT(*) as quantidade 
 FROM clientes
@@ -95,17 +99,17 @@ resultado = conexao.execute(query).df()
 print(resultado)
 ```
 
-Este código executará três consultas em nosso dataframe de clientes. A primeira consulta conta os clientes, a segunda consulta seleciona apenas clientes com idade igual ou superior a 50 anos e a terceira consulta conta o número de clientes por idade, em grupos de idades onde tem de mais de 30 clientes.
+Este código executará ***três consultas*** em nosso dataframe de clientes. A primeira consulta conta os clientes, a segunda consulta seleciona apenas clientes com idade igual ou superior a 50 anos e a terceira consulta conta a quantidade de clientes por idade, apenas para as idades que possuem mais de 30 clientes.
 
 As saídas no console serão as seguintes:
 
-- (Query 1) Contando os clientes.
+- (Query 1) Contando os ***clientes***.
 
 |     |quantidade_clientes|
 |-----|-----|
 |0|1000|
 
-- (Query 2) Selecionando apenas clientes com idade igual ou superior a 50 anos.
+- (Query 2) Selecionando apenas clientes com idade ***igual ou superior a 50 anos***.
 
 |     |nome|sobrenome|idade|ultimo_salario|empresa_atual|
 |-----|-----|-----|-----|-----|-----|
@@ -124,7 +128,7 @@ As saídas no console serão as seguintes:
 |12|Riobard|Heppner|50.0|19755.22|Dabshots|
 |13|Alessandra|Francklin|50.0|8639.67|Flipopia|
 
-- (Query 3) Contando o número de clientes por idade, em grupos de idades onde tem de mais de 30 clientes.
+- (Query 3) Contando a quantidade de ***clientes por idade***, apenas para as idades que possuem mais de 30 clientes.
 
 |     |idade|quantidade|
 |-----|-----|-----|

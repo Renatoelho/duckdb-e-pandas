@@ -23,7 +23,7 @@ resultado = conexao.execute(query).df()
 
 print(resultado)
 
-# (Query 3) Contando o número de clientes por idade, em grupos de idades onde tem de mais de 30 clientes
+# (Query 3) Contando a quantidade de clientes por idade, apenas para as idades que possuem mais de 30 clientes
 query = """
 SELECT idade, COUNT(*) as quantidade 
 FROM clientes
